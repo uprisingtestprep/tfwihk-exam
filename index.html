@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technischer Fachwirt IHK: Übungswerkzeug Teil III</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="gate-screen" class="screen">
+  <div class="gate-box">
+    <div class="brand">Uprising Test Prep</div>
+    <h1>Technischer Fachwirt IHK<br>Übungswerkzeug Teil III</h1>
+    <p class="muted">Geben Sie Ihren Zugangscode ein.</p>
+    <input id="access-code-input" type="text" placeholder="Zugangscode" autocomplete="off">
+    <button id="gate-submit" class="btn btn-primary">Weiter</button>
+    <p id="gate-error" class="error"></p>
+  </div>
+</div>
+
+<div id="mode-screen" class="screen" style="display:none">
+  <div class="mode-grid">
+    <div class="mode-card" id="mode-cases">
+      <h2>Einzelne Teilaufgabe</h2>
+      <p>60 schriftliche Teilaufgaben. Lesen Sie Ausgangslage und Anlagen, lösen Sie auf Papier gegen eine Uhr (etwa 2,4 Minuten je Punkt), dann zeigen Sie Musterlösung und Bewertungsraster und vergeben sich Punkte.</p>
+    </div>
+    <div class="mode-card" id="mode-mock">
+      <h2>Volle Situationsaufgabe (240 Minuten)</h2>
+      <p>Ein ganzer Mock mit sechs Teilaufgaben und 100 Übungspunkten gegen die echte 240-Minuten-Uhr. Nichts wird vorher gezeigt. Danach bewerten Sie alle Teilaufgaben und sehen, ob Sie die 50-Punkte-Grenze erreichen.</p>
+    </div>
+    <div class="mode-card" id="mode-oral">
+      <h2>Fachgespräch mit Präsentation</h2>
+      <p>40 Szenarien. 30 Minuten Vorbereitung, 15 Minuten Präsentation, 20 Minuten Prüfungsgespräch mit eigener Uhr je Phase. Danach Musterpräsentation, Prüferfragen und Selbstbewertung (Gespräch zwei Drittel, Präsentation ein Drittel).</p>
+    </div>
+  </div>
+  <p class="foot muted">Die Punkteverteilung ist das eigene Übungsraster des Buches, kein amtliches Raster. Die gesetzliche Grenze ist 50 Punkte im schriftlichen und 50 im mündlichen Teil.
+  <a href="flashcards/index.html" target="_blank">Karteikarten</a></p>
+</div>
+
+<div id="list-screen" class="screen" style="display:none">
+  <header class="app-header">
+    <div><div class="brand">Uprising Test Prep</div><h1 id="list-title">Teilaufgaben</h1></div>
+    <div class="header-actions"><a href="#" id="back-from-list" class="btn btn-ghost">Zurück</a></div>
+  </header>
+  <div class="filters">
+    <select id="filter-mock"><option value="">Alle Mocks</option></select>
+    <select id="filter-domain"><option value="">Alle Handlungsbereiche</option></select>
+    <span id="list-count" class="muted"></span>
+  </div>
+  <div id="item-list" class="station-list"></div>
+</div>
+
+<div id="mockpick-screen" class="screen" style="display:none">
+  <header class="app-header">
+    <button id="back-from-mockpick" class="btn btn-ghost">&#8592; Zurück</button>
+    <div>Volle Situationsaufgabe</div>
+  </header>
+  <div class="station-body">
+    <section class="panel">
+      <h2>Mock wählen</h2>
+      <p class="muted">Planen Sie 4 Stunden ein. Die Uhr läuft 240 Minuten. Sie sehen alle sechs Teilaufgaben, wählen die Reihenfolge selbst und schreiben Ihre Lösungen auf Papier. Wenn die Uhr abläuft, bewerten Sie sich.</p>
+      <div id="mock-buttons" class="timer-controls"></div>
+    </section>
+  </div>
+</div>
+
+<div id="work-screen" class="screen" style="display:none">
+  <header class="app-header">
+    <button id="back-from-work" class="btn btn-ghost">&#8592; Zurück</button>
+    <div id="work-title"></div>
+  </header>
+  <div class="station-body">
+    <div class="meta-row"><span id="work-badge" class="badge"></span></div>
+    <section class="panel timer-panel">
+      <div class="mock-bar"><h2 id="timer-heading">Uhr</h2><span id="timer-sub" class="muted"></span></div>
+      <div id="timer-display" class="big">00:00</div>
+      <div id="timer-label" class="muted">Bereit</div>
+      <div class="timer-controls">
+        <button id="timer-start" class="btn btn-primary">Uhr starten</button>
+        <button id="timer-reset" class="btn btn-ghost">Zurücksetzen</button>
+        <button id="timer-next" class="btn btn-primary hidden">Nächste Phase</button>
+      </div>
+    </section>
+    <div id="work-body"></div>
+    <section class="panel" id="reveal-panel">
+      <button id="reveal-btn" class="btn btn-primary btn-block">Lösung und Bewertung zeigen</button>
+      <p id="reveal-warn" class="muted"></p>
+    </section>
+    <section id="answer-section" class="panel answer-section" style="display:none"></section>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
